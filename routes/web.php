@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(SpaceController::class)->prefix('admin')->group(function() {
-    Route::get('space/create', 'add');
+Route::controller(SpaceController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function() {
+    Route::get('space/create', 'add')->name('space.add');
+    Route::post('space/create', 'create')->name('space.create');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
