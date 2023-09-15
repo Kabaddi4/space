@@ -43,4 +43,11 @@ class SpaceController extends Controller
         
         return redirect('admin/space/create');
     }
+    
+    public function index(Request $request)
+    {
+        $list = Space::all();
+        
+        return view('admin.space.index');
+    }
 }

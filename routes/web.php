@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::controller(SpaceController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function() {
     Route::get('space/create', 'add')->name('space.add');
     Route::post('space/create', 'create')->name('space.create');
+    Route::get('space', 'index')->name('space.index');
 });
 Auth::routes();
 

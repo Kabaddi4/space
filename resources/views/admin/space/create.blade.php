@@ -22,9 +22,9 @@
                     <select name="name" class="form-select" aria-label="Default select example">
                         <option selected>Chose Character</option>
                         <option value="travelar" {{ old('name') === 'travelar' ? 'selected' : '' }}>Travelar</option>
-                        <option value="2">Kafka</option>
-                        <option value="3">刃</option>
-                        <option value="4">青雀</option>
+                        <option value="Kafka">Kafka</option>
+                        <option value="Blade">刃</option>
+                        <option value="青雀">青雀</option>
                     </select>
                     
                     <select name="role" class="form-select" aria-label="Default select example">
