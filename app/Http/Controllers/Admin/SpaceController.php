@@ -46,8 +46,8 @@ class SpaceController extends Controller
     
     public function index(Request $request)
     {
-        $list = Space::all();
+        $lists = Space::all();
         
-        return view('admin.space.index');
+        return view('admin.space.index', ['lists' => $lists]);
     }
 }
