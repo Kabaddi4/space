@@ -22,6 +22,7 @@ Route::controller(SpaceController::class)->prefix('admin')->name('admin.')->midd
     Route::get('space/create', 'add')->name('space.add');
     Route::post('space/create', 'create')->name('space.create');
     Route::get('space', 'index')->name('space.index');
+    Route::get('space/{id}', 'show')->name('space.show');
 });
 Auth::routes();
 

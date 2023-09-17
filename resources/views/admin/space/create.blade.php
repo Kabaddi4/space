@@ -22,9 +22,9 @@
                     <select name="name" class="form-select" aria-label="Default select example">
                         <option selected>Chose Character</option>
                         <option value="travelar" {{ old('name') === 'travelar' ? 'selected' : '' }}>Travelar</option>
-                        <option value="Kafka">Kafka</option>
-                        <option value="Blade">刃</option>
-                        <option value="青雀">青雀</option>
+                        <option value="Kafka">Kaf</option>
+                        <option value="Blade">Chen</option>
+                        <option value="青雀">Ryuson</option>
                     </select>
                     
                     <select name="role" class="form-select" aria-label="Default select example">
@@ -63,14 +63,14 @@
                     <div class="form-group row">
                         <label class="col-md-6">Critical rate</label>
                         <div class="col-md-4">
-                            <input type="number" name="crit_rate" class="form-control" value="{{ old('crit_rate') }}" max=100 min=0>%
+                            <input type="number" name="crit_rate" class="form-control" value="{{ old('crit_rate') }}">%
                         </div>
                     </div>
                     
                     <div class="form-group row">
                         <label class="col-md-6">Critical damage</label>
                         <div class="col-md-4">
-                            <input type="number" class="form-control" name="crit_damage" value="{{ old('crit_damage') }}" max=300 min=0>%
+                            <input type="number"  name="crit_damage" class="form-control" value="{{ old('crit_damage') }}" max=300 min=0>%
                         </div>
                     </div>
                     @csrf

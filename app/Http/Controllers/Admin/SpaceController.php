@@ -50,4 +50,11 @@ class SpaceController extends Controller
         
         return view('admin.space.index', ['lists' => $lists]);
     }
+    
+    public function show($id)
+    {
+        $chara_detail = Space::find($id);
+        
+        return view('admin.space.show', ['chara_detail' => $chara_detail]);
+    }
 }

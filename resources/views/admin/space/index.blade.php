@@ -19,16 +19,19 @@
                         <thead>
                             <tr>
                                 <th width="10%">ID</th>
-                                <th width="40%">Name</th>
-                                <th width="20%">Element</th>
-                                <th width="20%">Role</th>
+                                <th width="10%">Name</th>
+                                <th width="30%">Element</th>
+                                <th width="30%">Role</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($lists as $list)
-                                <tr>
-                                    <th>{{ $list->id }}</th>
-                                </tr>
+                            <tr>
+                                <th>{{ $list->id }}</th>
+                                <td><a href="{{ route('admin.space.show', ['id' => $list->id]) }}">{{ Str::limit($list->name, 15) }}</td>
+                                <td>{{ Str::limit($list->element, 10) }}</td>
+                                <td>{{ Str::limit($list->role, 10) }}</td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>

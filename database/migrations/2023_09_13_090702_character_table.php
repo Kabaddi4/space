@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('role');
             $table->string('element');
             $table->integer('attack');
-            $table->double('damage_parsent', 3, 1);
-            $table->double('crit_rate', 2, 1);
-            $table->double('crit_damage', 3, 1);
+            $table->float('damage_parsent', 4, 2);
+            $table->float('crit_rate', 4, 2);
+            $table->float('crit_damage', 4, 2);
             $table->string('image_path')->nullable();
             $table->timestamps();
         });
