@@ -53,8 +53,35 @@ class SpaceController extends Controller
     
     public function show($id)
     {
+        //モデルからデータ取得
         $chara_detail = Space::find($id);
         
         return view('admin.space.show', ['chara_detail' => $chara_detail]);
+    }
+    
+    public function edit($Request $request)
+    {   
+        //モデルからIDに対応するデータ取得
+        $chara_edit = Space::find($request->id);
+        if (empty($chara_edit)) {
+            abort(404);
+        }
+        return view('admin.space.edit', ['chara_form' => $chara_edit]);
+    }
+    
+    public function update(Request $request)
+    {
+        //バリデーション実装
+        $this->validate($request, Space::$rules);
+        //Space Model
+        $chara_edit = Space::find($request->id);
+        //送信されたフォームデータの格納
+        $chara_form = $request->all();
+        unset($chara_form['_token']);
+        
+        //上書きして保存
+        $chara_edit->fill($chara_form)->save();
+        
+        return redirect('admin/space');
     }
 }
