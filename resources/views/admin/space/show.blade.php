@@ -18,14 +18,37 @@
         </div>
 
         <div class="row ">
-                <table class="mx-auto">
-                    <tr class="p-2">
-                        <td class="p-2">Elements avaliable：{{ $chara_detail->element }}</td>
-                    </tr>
-                    <tr class="p-2">
-                        <td class="p-2">Role Position: {{ $chara_detail->role }}</td>
-                    </tr>
-                </table>
+            <table class="mx-auto">
+                <tr class="p-2">
+                        {{--{->element}部分だけ書いて、色を変える。--}}
+                    <td class="p-2"><p>Elements avaliable：{{ $chara_detail->element }}</p></td>
+                </tr>
+                <tr class="p-2">
+                    <td class="p-2">Role Position: {{ $chara_detail->role }}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="row">
+            <table class="mx-auto">
+                <tr>
+                    <th>Attack</th>
+                    <th>Damage Parsent</th>
+                    <th>Crit Rate</th>
+                    <th>Crit Damage</th>
+                </tr>
+                <tr>
+                    <td>{{ $chara_detail->attack }}</td>
+                    <td>{{ $chara_detail->damage_parsent }}%</td>
+                    <td>{{ $chara_detail->crit_rate }}%</td>
+                    <td>{{ $chara_detail->crit_damage }}%</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                
             </div>
         </div>
     </div>
