@@ -59,7 +59,7 @@ class SpaceController extends Controller
         return view('admin.space.show', ['chara_detail' => $chara_detail]);
     }
     
-    public function edit($Request $request)
+    public function edit(Request $request)
     {   
         //モデルからIDに対応するデータ取得
         $chara_edit = Space::find($request->id);

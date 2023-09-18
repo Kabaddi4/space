@@ -24,7 +24,7 @@ Route::controller(SpaceController::class)->prefix('admin')->name('admin.')->midd
     Route::get('space', 'index')->name('space.index');
     Route::get('space/{id}', 'show')->name('space.show');
     Route::get('space/edit', 'edit')->name('space.edit');
-    Route::post('space/edit', 'update')->('space.update');
+    Route::post('space/edit', 'update')->name('space.update');
 });
 Auth::routes();
 
