@@ -24,30 +24,47 @@
     </head>
     <body>
         <div id="app">
-            <header>
+            
+            {{-- 画面上のナビゲーションバー --}}
+            <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+                <div class="container">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                    {{--Button--}}
+                    <button class="navbar-toggler" type="button" data-toggle="collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="colapse navbar-collapse" id="navbarSupportedContent">
+                        {{-- Left Side of navbar --}}
+                        <ul class="navbar-nav ms-auto"></ul>
+                    </div>
+                </div>   
+            </nav>
                 {{--非ログイン時--}}
-                @guest
-                    <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
-                @else
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
+            @guest
+            <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
+            @else
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
                         
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); 
-                            document.getElementById('logout-form').submit();">
-                                {{ __('messages.logout') }}
-                            </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{ __('messages.logout') }}
+                        </a>
                             
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                @endguest
-            </header>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endguest
+            
             <main class="py-4">
+                
                 @yield('content')
             </main>
         </div>

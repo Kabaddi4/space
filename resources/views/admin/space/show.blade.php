@@ -48,7 +48,9 @@
         
         <div class="row">
             <div class="col-md-6 mx-auto">
-                
+            <form action="{{ route('admin.space.edit', ['id' => $chara_detail]) }}" method="get">
+                <button type="submit" class="btn btn-success">Edit</button>
+            </form>
             </div>
         </div>
     </div>
