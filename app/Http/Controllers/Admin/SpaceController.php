@@ -51,10 +51,10 @@ class SpaceController extends Controller
         return view('admin.space.index', ['lists' => $lists]);
     }
     
-    public function show($id)
+    public function show(Request $request)
     {
         //モデルからデータ取得
-        $chara_detail = Space::find($id);
+        $chara_detail = Space::find($request->id);
         
         return view('admin.space.show', ['chara_detail' => $chara_detail]);
     }
@@ -62,25 +62,37 @@ class SpaceController extends Controller
     public function edit(Request $request)
     {   
         //モデルからIDに対応するデータ取得
-        $chara_edit = Space::find($request->id);
-        if (empty($chara_edit)) {
+        $chara_detail = Space::find($request->id);
+        if (empty($news)) {
             abort(404);
         }
-        return view('admin.space.edit', ['chara_form' => $chara_edit]);
+        return view('admin.space.edit', ['state_form' => $chara_detail]);
     }
     
     public function update(Request $request)
     {
         //バリデーション実装
         $this->validate($request, Space::$rules);
-        //Space Model
-        $chara_edit = Space::find($request->id);
-        //送信されたフォームデータの格納
-        $chara_form = $request->all();
-        unset($chara_form['_token']);
+        //IDを取得
+        $chara_detail = Space::find($request->id);
+        //フォームデータの格納
+        $state_form = $request->only(['attack', 'damage_parsent', 'crit_rate', 'crit_damage',]);
+        
+        if ($request->remove == 'true') {
+            $state_form['image_path'] = null;
+        } else if($request->file('image')) {
+            $path = $request->file('image')->store('public/image');
+            $state_form['image_path'] = basename($path);
+        } else {
+            $state_form['image_path'] = $chara_detail->image_path;
+        }
+        
+        unset($state_form['image']);
+        unset($state_form['remove']);
+        unset($state_form['_token']);
         
         //上書きして保存
-        $chara_edit->fill($chara_form)->save();
+        $chara_detail->fill($state_form)->save();
         
         return redirect('admin/space');
     }

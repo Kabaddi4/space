@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!--CSRF token-->
-        <meta name="csrf-token" content="{{ csrf_token()}}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         
         {{--共通してtitleタグを入れる--}}
         <title>@yield('title')</title>
@@ -24,7 +24,6 @@
     </head>
     <body>
         <div id="app">
-            
             {{-- 画面上のナビゲーションバー --}}
             <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
                 <div class="container">
@@ -39,29 +38,34 @@
                     <div class="colapse navbar-collapse" id="navbarSupportedContent">
                         {{-- Left Side of navbar --}}
                         <ul class="navbar-nav ms-auto"></ul>
+                        
+                        {{-- Right Side of navbar --}}
+                        <ul class="navbar-nav">
+                            {{--非ログイン時--}}
+                        @guest
+                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
+                        @else
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+                        
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('messages.logout') }}
+                                    </a>
+                                        
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                        </ul>
                     </div>
                 </div>   
             </nav>
-                {{--非ログイン時--}}
-            @guest
-            <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
-            @else
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle">
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-                        
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            {{ __('messages.logout') }}
-                        </a>
-                            
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
-            @endguest
+            
             
             <main class="py-4">
                 

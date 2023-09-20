@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Top Page');
+@section('title', 'Top Page')
 
 @section('content')
     <div class="container">

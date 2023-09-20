@@ -73,6 +73,13 @@
                             <input type="number"  name="crit_damage" class="form-control" value="{{ old('crit_damage') }}" max=300 min=0>%
                         </div>
                     </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2"></label>
+                        <div class="col-md-10">
+                            <input type="file" class="form-control-file" name="image">
+                        </div>
+                    </div>
                     @csrf
                     <input type="submit" class="btn btn-primary" value="作成">
                 </form>

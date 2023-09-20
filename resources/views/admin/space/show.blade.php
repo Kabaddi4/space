@@ -9,7 +9,6 @@
 
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-6 mx-auto p-3">
                 <h6 class="display-6">{{ $chara_detail->name }}</h6>
@@ -53,6 +52,7 @@
             </form>
             </div>
         </div>
+        {{ dd($chara_detail) }}
     </div>
 @endsection
 
