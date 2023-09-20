@@ -47,12 +47,10 @@
         
         <div class="row">
             <div class="col-md-6 mx-auto">
-            <form action="{{ route('admin.space.edit', ['id' => $chara_detail]) }}" method="get">
-                <button type="submit" class="btn btn-success">Edit</button>
-            </form>
+                <a href="{{ route('admin.space.edit', ['id' => $chara_detail]) }}" class="btn btn-success">Edit</a>
             </div>
         </div>
-        {{ dd($chara_detail) }}
+        {{-- dd($chara_detail) --}}
     </div>
 @endsection
 

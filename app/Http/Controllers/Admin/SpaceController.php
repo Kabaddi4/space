@@ -55,7 +55,7 @@ class SpaceController extends Controller
     {
         //モデルからデータ取得
         $chara_detail = Space::find($request->id);
-        
+        //dd($request->id);
         return view('admin.space.show', ['chara_detail' => $chara_detail]);
     }
     
@@ -63,7 +63,7 @@ class SpaceController extends Controller
     {   
         //モデルからIDに対応するデータ取得
         $chara_detail = Space::find($request->id);
-        if (empty($news)) {
+        if (empty($chara_detail)) {
             abort(404);
         }
         return view('admin.space.edit', ['state_form' => $chara_detail]);

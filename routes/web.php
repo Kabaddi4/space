@@ -18,13 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(SpaceController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function() {
-    Route::get('space/create', 'add')->name('space.add');
-    Route::post('space/create', 'create')->name('space.create');
-    Route::get('space', 'index')->name('space.index');
-    Route::get('space/{id}', 'show')->name('space.show');
-    Route::get('space/edit', 'edit')->name('space.edit');
-    Route::post('space/edit', 'update')->name('space.update');
+Route::controller(SpaceController::class)->prefix('admin/space')->name('admin.space.')->middleware('auth')->group(function() {
+    Route::get('create', 'add')->name('add');
+    Route::post('create', 'create')->name('create');
+    Route::get('/', 'index')->name('index');
+    Route::get('{id}', 'show')->name('show')->where('id', '[0-9]+');
+    Route::get('edit', 'edit')->name('edit');
+    Route::post('edit', 'update')->name('update');
 });
 Auth::routes();
 
