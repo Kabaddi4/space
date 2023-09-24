@@ -19,7 +19,7 @@
                             @endforeach
                         </ul>
                     @endif
-                    <select name="name" class="form-select" aria-label="Default select example">
+                    <select name="name" class="form-select mb-3" aria-label="Default select example">
                         <option selected>Chose Character</option>
                         <option value="travelar" {{ old('name') === 'travelar' ? 'selected' : '' }}>Travelar</option>
                         <option value="Kafka">Kaf</option>
@@ -27,7 +27,7 @@
                         <option value="青雀">Ryuson</option>
                     </select>
                     
-                    <select name="role" class="form-select" aria-label="Default select example">
+                    <select name="role" class="form-select mt-3 mb-3 " aria-label="Default select example">
                         <option selected>Role</option>
                         <option value="Maindps">MainDPS</option>
                         <option value="Subdps">SubDPS</option>

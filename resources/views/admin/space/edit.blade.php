@@ -41,6 +41,14 @@
                             <input type="number"  name="crit_damage" class="form-control" value="{{ old('crit_damage') }}" max=300 min=0>%
                         </div>
                     </div>
+                    
+                    <div class="form-group row">
+                        <div class="col-md-10">
+                            <input type="hidden" name="id" value="{{ $state_form->id }}">
+                            @csrf
+                            <input type="submit" class="btn btn-outline-success" value="Update">
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

@@ -71,7 +71,12 @@ class SpaceController extends Controller
     
     public function update(Request $request)
     {
-        //バリデーション実装
+       //バリデーションを適用させないカラム設定
+        $exclide_validate = ['name', 'element', 'role'];
+        foreach ($exclide_validate as $colum){
+            unset(Space::$rules[$colum]);
+        }
+         //バリデーション実装
         $this->validate($request, Space::$rules);
         //IDを取得
         $chara_detail = Space::find($request->id);
@@ -96,4 +101,5 @@ class SpaceController extends Controller
         
         return redirect('admin/space');
     }
+    //@php
 }
