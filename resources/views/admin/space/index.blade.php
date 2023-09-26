@@ -8,10 +8,22 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{ route('admin.space.add') }}" role="button" class="btn btn-primary">
+                <a href="{{ route('admin.space.add') }}" role="button" class="btn btn-outline-dark">
                     New create
                 </a>
             </div>
+            <div class="col-md-8">
+                <form action="{{ route('admin.space.index') }}" method="get">
+                    <div class="form-group row">
+                        <label class="col-md-2">Name</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="cond_name" value="{{ $cond_name }}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
         <div class="row">
             <div class="list-news col-md-12 mx-auto">
                 <div class="row">
@@ -38,5 +50,5 @@
                 </div>
             </div>
         </div>
-        </div>
     </div>
+    

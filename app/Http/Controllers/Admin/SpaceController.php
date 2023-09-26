@@ -46,9 +46,16 @@ class SpaceController extends Controller
     
     public function index(Request $request)
     {
-        $lists = Space::all();
+        //検索機能
+        $cond_name = $request->cond_name;
+        if ($cond_name != '') {
+            //結果を取得
+            $lists = Space::where('name', $cond_name)->get();
+        } else {
+            $lists = Space::all();
+        }
         
-        return view('admin.space.index', ['lists' => $lists]);
+        return view('admin.space.index', ['lists' => $lists, 'cond_name' => $cond_name]);
     }
     
     public function show(Request $request)
