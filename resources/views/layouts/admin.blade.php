@@ -68,6 +68,7 @@
             
             
             <main class="py-4">
+                {{--コンテンツの入れ場所--}}
                 @yield('content')
             </main>
         </div>
