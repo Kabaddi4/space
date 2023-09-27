@@ -44,10 +44,11 @@
                             {{--非ログイン時--}}
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
+                            {{--ログイン時--}}
                         @else
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <a class="nav-link dropdown-toggle" href="#" id="navbar-Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                         
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
