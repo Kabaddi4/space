@@ -24,7 +24,7 @@
     </head>
     <body>
         <div id="app">
-            {{-- 画面上のナビゲーションバー --}}
+            {{-- 画面上のナビゲーションバー(Laravel と書かれている部分) --}}
             <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
@@ -59,8 +59,10 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    <a class="dropdown-item" href="{{ route('admin.space.index') }}">Top</a>
                                 </div>
                             </li>
+                            
                         @endguest
                         </ul>
                     </div>

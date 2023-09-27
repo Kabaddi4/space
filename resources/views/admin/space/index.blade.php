@@ -4,7 +4,9 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h3>Character List</h3>
+            <div class="col-md-6">
+                <h3>Character List</h3>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-4">
