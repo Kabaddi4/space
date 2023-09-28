@@ -19,22 +19,15 @@
                             @endforeach
                         </ul>
                     @endif
-                    <select name="name" class="form-select mb-3" aria-label="Default select example">
+                    <select name="name" id="chara_name" class="form-select mb-3" aria-label="Default select example">
                         <option selected>Chose Character</option>
                         <option value="travelar" {{ old('name') === 'travelar' ? 'selected' : '' }}>Travelar</option>
                         <option value="Kafka">Kaf</option>
                         <option value="Blade">Chen</option>
-                        <option value="青雀">Ryuson</option>
+                        <option value="Qingque">Ryuson</option>
                     </select>
                     
-                    <select name="role" class="form-select mt-3 mb-3 " aria-label="Default select example">
-                        <option selected>Role</option>
-                        <option value="Maindps">MainDPS</option>
-                        <option value="Subdps">SubDPS</option>
-                        <option value="Supporter">Support</option>
-                        <option value="Tanker">Tank</option>
-                        <option value="Healer">Heal</option>
-                    </select>
+                    <input type="hidden" name="role" value="{{ old('role') }}">
                     
                     <select name="element" class="form-select" aria-label="Default select example">
                         <option selected>Element</option>
@@ -86,6 +79,36 @@
             </div>
         </div>
     </div>
+    
+    
 @endsection
-
 {{--js--}}
+<script src="{{ asset('js/app.js') }}"></script>
+
+<script>
+    $(function(){
+        // 要素を取得
+        let conf = $('#chara_name');
+        
+        //対応する値の選択
+        var = roleVal = '';
+        //対応した値をswitch文で選択
+        switch(conf) {
+            case 'travelar';
+                roleVal = 'Tanker';
+                break;
+            case 'Kafka';
+                roleVal = 'Maindps';
+                break;
+            case 'Blade';
+                roleVal = 'Maindps';
+                break;
+            case 'Qingque';
+                roleVal = 'Maindps';
+                break;
+        }
+        
+        // input type hiddenでroleカラムに値設定
+        $('input[name="role"]').val(roleVal);
+    });
+</script>
