@@ -25,6 +25,7 @@ Route::controller(SpaceController::class)->prefix('admin/space')->name('admin.sp
     Route::get('{id}', 'show')->name('show')->where('id', '[0-9]+');
     Route::get('edit', 'edit')->name('edit');
     Route::post('edit', 'update')->name('update');
+    Route::get('calculate', 'calculate')->name('calculate');
 });
 Auth::routes();
 

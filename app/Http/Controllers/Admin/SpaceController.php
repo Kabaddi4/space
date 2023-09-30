@@ -111,5 +111,11 @@ class SpaceController extends Controller
         
         return redirect('admin/space');
     }
+    
+    public function calculate() {
+        
+        return view('admin.space.calculate');
+    }
+    
     //@php
 }

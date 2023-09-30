@@ -20,7 +20,7 @@
             <table class="mx-auto">
                 <tr class="p-2">
                         {{--{->element}部分だけ書いて、色を変える。--}}
-                    <td class="p-2"><p>Elements avaliable：{{ $chara_detail->element }}</p></td>
+                    <td class="p-2" id="test1">Elements avaliable：{{ $chara_detail->element }}</td>
                 </tr>
                 <tr class="p-2">
                     <td class="p-2">Role Position: {{ $chara_detail->role }}</td>
@@ -55,14 +55,16 @@
 @endsection
 
 
-{{--<script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 <script>
-    $(function(){
+    $(function() {
         //クラス取得
         let t1 = $('.title_test');
 
         console.log(t1);
     });
-</script>--}}
+</script>
+{{--・elementの要素を取得し、値に応じて色を変えるシステムを作ろうとしている--}}
+
 
 {{--@php --}}

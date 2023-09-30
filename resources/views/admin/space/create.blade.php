@@ -82,16 +82,18 @@
     
     
 @endsection
-{{--js--}}
+{{--jsファイル読み込み(asset→public dir)--}}
 <script src="{{ asset('js/app.js') }}"></script>
 
 <script>
     $(function(){
-        // 要素を取得
-        let conf = $('#chara_name');
+        // chara_name id が選択された時のイベント
+        $('#chara_name').on('click', function() {
         
+        //選択されたnameを取得
+        var conf = $(this).val();
         //対応する値の選択
-        var = roleVal = '';
+        var roleVal = '';
         //対応した値をswitch文で選択
         switch(conf) {
             case 'travelar';
@@ -110,5 +112,6 @@
         
         // input type hiddenでroleカラムに値設定
         $('input[name="role"]').val(roleVal);
+        });
     });
 </script>
