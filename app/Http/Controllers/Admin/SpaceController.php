@@ -114,6 +114,7 @@ class SpaceController extends Controller
     
     public function calculate() {
         
+        $characters = Space::all();
         return view('admin.space.calculate');
     }
     

@@ -83,12 +83,13 @@
     
 @endsection
 {{--jsファイル読み込み(asset→public dir)--}}
-<script src="{{ asset('js/app.js') }}"></script>
 
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 <script>
-    $(function(){
-        // chara_name id が選択された時のイベント
-        $('#chara_name').on('click', function() {
+    $(document).ready(function(){
+        $('#chara_name').change( function() {
+            console.log('click');
+            // chara_name id が選択された時のイベント
         
         //選択されたnameを取得
         var conf = $(this).val();
@@ -96,22 +97,47 @@
         var roleVal = '';
         //対応した値をswitch文で選択
         switch(conf) {
-            case 'travelar';
+            case 'travelar':
                 roleVal = 'Tanker';
                 break;
-            case 'Kafka';
-                roleVal = 'Maindps';
+            case 'Kafka':
+               roleVal = 'Maindps';
                 break;
-            case 'Blade';
-                roleVal = 'Maindps';
-                break;
-            case 'Qingque';
-                roleVal = 'Maindps';
-                break;
-        }
+            case 'Blade':
+               roleVal = 'Maindps';
+               break;
+            case 'Qingque':
+               roleVal = 'Maindps';
+               break;
+       }
         
         // input type hiddenでroleカラムに値設定
-        $('input[name="role"]').val(roleVal);
+      $('input[name="role"]').val(roleVal);
         });
     });
+        // chara_name id が選択された時のイベント
+        
+        //選択されたnameを取得
+        //var conf = $(this).val();
+        //対応する値の選択
+        //var roleVal = '';
+        //対応した値をswitch文で選択
+        //switch(conf) {
+            //case 'travelar';
+                //roleVal = 'Tanker';
+                //break;
+            //case 'Kafka';
+               // roleVal = 'Maindps';
+                //break;
+            //case 'Blade';
+               // roleVal = 'Maindps';
+               // break;
+          //  case 'Qingque';
+               // roleVal = 'Maindps';
+              //  break;
+       // }
+        
+        // input type hiddenでroleカラムに値設定
+      //  $('input[name="role"]').val(roleVal);
+       
 </script>
