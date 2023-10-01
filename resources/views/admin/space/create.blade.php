@@ -29,15 +29,7 @@
                     
                     <input type="hidden" name="role" value="{{ old('role') }}">
                     
-                    <select name="element" class="form-select" aria-label="Default select example">
-                        <option selected>Element</option>
-                        <option value="fire">火</option>
-                        <option value="ice">氷</option>
-                        <option value="elect">雷</option>
-                        <option value="wind">風</option>
-                        <option value="quantum">量子</option>
-                        <option value="imaginary">虚数</option>
-                    </select>
+                    <input type="hidden" name="element" value="{{ old('element') }}">
                     
                     <div class="form-group row">
                         <label class="col-md-6">Attack</label>
@@ -83,7 +75,7 @@
     
 @endsection
 {{--jsファイル読み込み(asset→public dir)--}}
-
+{{--layouts.adminと、jQueryを使用するページにこれを貼る--}}
 <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 <script>
     $(document).ready(function(){
@@ -95,49 +87,31 @@
         var conf = $(this).val();
         //対応する値の選択
         var roleVal = '';
+        var elementVal = '';
         //対応した値をswitch文で選択
         switch(conf) {
             case 'travelar':
                 roleVal = 'Tanker';
+                elementVal = 'Fire';
                 break;
             case 'Kafka':
                roleVal = 'Maindps';
-                break;
+               elementVal = 'Lightning';
+               break;
             case 'Blade':
                roleVal = 'Maindps';
+               elementVal = 'Wind';
                break;
             case 'Qingque':
                roleVal = 'Maindps';
+               elementVal = 'Quantum';
                break;
        }
         
         // input type hiddenでroleカラムに値設定
       $('input[name="role"]').val(roleVal);
+      $('input[name="element"]').val(elementVal);
         });
     });
-        // chara_name id が選択された時のイベント
-        
-        //選択されたnameを取得
-        //var conf = $(this).val();
-        //対応する値の選択
-        //var roleVal = '';
-        //対応した値をswitch文で選択
-        //switch(conf) {
-            //case 'travelar';
-                //roleVal = 'Tanker';
-                //break;
-            //case 'Kafka';
-               // roleVal = 'Maindps';
-                //break;
-            //case 'Blade';
-               // roleVal = 'Maindps';
-               // break;
-          //  case 'Qingque';
-               // roleVal = 'Maindps';
-              //  break;
-       // }
-        
-        // input type hiddenでroleカラムに値設定
-      //  $('input[name="role"]').val(roleVal);
        
 </script>
