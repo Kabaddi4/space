@@ -79,10 +79,9 @@
 <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 <script>
     $(document).ready(function(){
+        // chara_name id が選択された時のイベント
         $('#chara_name').change( function() {
             console.log('click');
-            // chara_name id が選択された時のイベント
-        
         //選択されたnameを取得
         var conf = $(this).val();
         //対応する値の選択
@@ -107,7 +106,6 @@
                elementVal = 'Quantum';
                break;
        }
-        
         // input type hiddenでroleカラムに値設定
       $('input[name="role"]').val(roleVal);
       $('input[name="element"]').val(elementVal);

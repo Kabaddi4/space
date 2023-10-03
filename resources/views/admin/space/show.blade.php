@@ -19,8 +19,9 @@
         <div class="row ">
             <table class="mx-auto">
                 <tr class="p-2">
-                        {{--{->element}部分だけ書いて、色を変える。--}}
-                    <td class="p-2" id="test1">Elements avaliable：{{ $chara_detail->element }}</td>
+                        {{-- {->element}部分だけ書いて、色を変える。--}}
+                    <td class="p-2">Elements avaliable
+                    <p class="color_element">{{ $chara_detail->element }}</p></td>
                 </tr>
                 <tr class="p-2">
                     <td class="p-2">Role Position: {{ $chara_detail->role }}</td>
@@ -55,13 +56,15 @@
 @endsection
 
 
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 <script>
     $(function() {
-        //クラス取得
-        let t1 = $('.title_test');
-
-        console.log(t1);
+        //クラス取得(インスタンス生成に似ている)
+        let t1 = document.getElementByClassName('color_element');
+        
+        switch(t1) {
+            
+        }
     });
 </script>
 {{--・elementの要素を取得し、値に応じて色を変えるシステムを作ろうとしている--}}

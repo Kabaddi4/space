@@ -4,3 +4,15 @@ body {
   background-color: #7fbfff;
   color: #fff;
 }
+
+.firetype {
+  color: red;
+}
+
+.electype {
+  color: violet;
+}
+
+.windtype {
+  color: green;
+}
