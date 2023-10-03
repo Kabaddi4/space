@@ -112,6 +112,15 @@ class SpaceController extends Controller
         return redirect('admin/space');
     }
     
+    public function delete(Request $request)
+    {
+        $chara_detail = Space::find($request->id);
+        //deleteメソッド
+        $chara_detail->delete();
+        
+        return redirect('admin/space/');
+    }
+    
     public function calculate() {
         
         $characters = Space::all();
