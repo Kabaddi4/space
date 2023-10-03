@@ -21,7 +21,7 @@
                 <tr class="p-2">
                         {{-- {->element}部分だけ書いて、色を変える。--}}
                     <td class="p-2">Elements avaliable
-                    <p class="color_element">{{ $chara_detail->element }}</p></td>
+                    <p id="color_element">{{ $chara_detail->element }}</p></td>
                 </tr>
                 <tr class="p-2">
                     <td class="p-2">Role Position: {{ $chara_detail->role }}</td>
@@ -59,11 +59,14 @@
 <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 <script>
     $(function() {
-        //クラス取得(インスタンス生成に似ている)
-        let t1 = document.getElementByClassName('color_element');
+        //IDから、text要素取得
+        var colorText = $('#color_element').text();
         
-        switch(t1) {
-            
+        //動く
+        switch(colorText) {
+            case 'fire':
+                $('#color_element').addClass('firetype');
+                break;
         }
     });
 </script>
