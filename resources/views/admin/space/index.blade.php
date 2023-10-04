@@ -54,7 +54,7 @@
                                 <td></td>
                                 <td>
                                     <div>
-                                        <a href="{{ route('admin.space.delete', ['id' => $list->id]) }}" class="btn btn-autoline-danger">Delete</a>
+                                        <a href="{{ route('admin.space.delete', ['id' => $list->id]) }}" class="btn btn-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>

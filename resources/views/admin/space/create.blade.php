@@ -21,7 +21,7 @@
                     @endif
                     <select name="name" id="chara_name" class="form-select mb-3" aria-label="Default select example">
                         <option selected>Chose Character</option>
-                        <option value="travelar" {{ old('name') === 'travelar' ? 'selected' : '' }}>Travelar</option>
+                        <option value="Travelar">Travelar</option>
                         <option value="Kafka">Kaf</option>
                         <option value="Blade">Chen</option>
                         <option value="Qingque">Ryuson</option>
@@ -89,7 +89,7 @@
         var elementVal = '';
         //対応した値をswitch文で選択
         switch(conf) {
-            case 'travelar':
+            case 'Travelar':
                 roleVal = 'Tanker';
                 elementVal = 'Fire';
                 break;

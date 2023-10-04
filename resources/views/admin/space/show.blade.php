@@ -48,7 +48,7 @@
         
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <a href="{{ route('admin.space.edit', ['id' => $chara_detail]) }}" class="btn btn-outline-success">Edit</a>
+                <a href="{{ route('admin.space.edit', ['id' => $chara_detail]) }}" class="btn btn-outline-success">Status Edit</a>
             </div>
         </div>
         {{-- dd($chara_detail)  --}}
@@ -64,8 +64,11 @@
         
         //動く
         switch(colorText) {
-            case 'fire':
+            case 'Fire':
                 $('#color_element').addClass('firetype');
+                break;
+            case 'Wind':
+                $('#color_element').addClass('windtype');
                 break;
         }
     });

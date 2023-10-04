@@ -6,6 +6,7 @@
         <div class="row">
             @foreach($characters as $character)
                 <option value="{{ $character->name }}"></option>
+            @endforeach
         </div>
     </div>
 @endsection

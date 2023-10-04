@@ -17,8 +17,6 @@ class SpaceController extends Controller
     }
     public function create(Request $request)
     {
-        
-        dd($request);
         //バリデーション、うけとった$requestを、$rulesの制限に掛ける？
         $this->validate($request, Space::$rules);
         
