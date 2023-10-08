@@ -15,7 +15,7 @@
         {{--Javascriptの読み込み--}}
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
         
-        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" ></script>
         
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -57,11 +57,12 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('messages.logout') }}
                                     </a>
-                                        
+                                    
+                                    <a class="dropdown-item" href="{{ route('admin.space.index') }}">Top</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    <a class="dropdown-item" href="{{ route('admin.space.index') }}">Top</a>
+                                    
                                 </div>
                             </li>
                             

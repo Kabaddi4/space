@@ -51,6 +51,12 @@
                 <a href="{{ route('admin.space.edit', ['id' => $chara_detail]) }}" class="btn btn-outline-success">Status Edit</a>
             </div>
         </div>
+        
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                
+            </div>
+        </div>
         {{-- dd($chara_detail)  --}}
     </div>
 @endsection

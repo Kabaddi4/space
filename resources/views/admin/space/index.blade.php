@@ -62,7 +62,12 @@
                         </tbody>
                     </table>
                 </div>
+                
+                <div class="row">
+                    <a href="{{ route('admin.space.calculate') }}" class="btn btn-primary">Damage Calculate</a>
+                </div>
             </div>
         </div>
     </div>
+@endsection
     

@@ -55,7 +55,6 @@ class SpaceController extends Controller
         } else {
             $lists = Space::all();
         }
-        
         return view('admin.space.index', ['lists' => $lists, 'cond_name' => $cond_name]);
     }
     
@@ -119,10 +118,9 @@ class SpaceController extends Controller
         return redirect('admin/space/');
     }
     
-    public function calculate() {
-        
-        $characters = Space::all();
-        return view('admin.space.calculate');
+    public function calculate(Request $request) {
+        $lists = Space::all();
+        return view('admin.space.calculate', ['lists' => $lists]);
     }
     
     //@php
