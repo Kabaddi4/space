@@ -120,7 +120,12 @@ class SpaceController extends Controller
     
     public function calculate(Request $request) {
         $lists = Space::all();
+        //name毎のリクエスト
+        $chara_name = $request->input('name');
+        $status = Space::where('name', $chara_name)->first();
+        //$attack = $status->attack;
         return view('admin.space.calculate', ['lists' => $lists]);
+        
     }
     
     //@php

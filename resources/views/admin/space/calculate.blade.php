@@ -8,10 +8,14 @@
                 <select name="name" class="form-select mb3" label="form-label">
                     <option select>Select</option>
                     @foreach($lists as $character)
-                    <option value="{{ $character->name }}">{{ $character->name }}</option>
+                        <option value="{{ $character->name }}">{{ $character->name }}</option>
                     @endforeach
                 </select>
             </div>
+        </div>
+        
+        <div class="row">
+        
         </div>
     </div>
 @endsection
