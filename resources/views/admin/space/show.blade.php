@@ -30,7 +30,7 @@
         </div>
         
         <div class="row">
-            <table class="mx-auto">
+            <table class="my-5">
                 <tr>
                     <th>Attack</th>
                     <th>Damage Parsent</th>
