@@ -21,10 +21,11 @@
                 <tr class="p-2">
                         {{-- {->element}部分だけ書いて、色を変える。--}}
                     <td class="p-2">Elements avaliable
-                    <p id="color_element">{{ $chara_detail->element }}</p></td>
+                    <p id="color_element" class="pt-1">{{ $chara_detail->element }}</p></td>
                 </tr>
                 <tr class="p-2">
-                    <td class="p-2">Role Position: {{ $chara_detail->role }}</td>
+                    <td class="p-2">Role Position
+                    <p class="fw-bold pt-1">{{ $chara_detail->role }}</p></td>
                 </tr>
             </table>
         </div>
@@ -48,7 +49,7 @@
         
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <a href="{{ route('admin.space.edit', ['id' => $chara_detail]) }}" class="btn btn-outline-success">Status Edit</a>
+                <a href="{{ route('admin.space.edit', ['id' => $chara_detail]) }}" class="btn btn-outline-success position-absolute top-50 start-0">Status Edit</a>
             </div>
         </div>
         
@@ -76,6 +77,8 @@
             case 'Wind':
                 $('#color_element').addClass('windtype');
                 break;
+            case 'Lightning':
+                $('#color_element').addClass('lightningtype');
         }
     });
 </script>
