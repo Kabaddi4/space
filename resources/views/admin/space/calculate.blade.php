@@ -22,8 +22,8 @@
                     <th>Ult Damage</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>(Attack * Damage parsent) * 0.7</td>
+                    <td>(Attack * Damage parsent) * 1.7</td>
                     <td></td>
                 </tr>
             </table>
@@ -53,6 +53,7 @@
                 attackVal = 1.2;
                 skillVal = 2.9;
                 ultVal = 3.1;
+                break;
         }
         });
     });

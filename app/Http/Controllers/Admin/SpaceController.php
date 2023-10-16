@@ -122,7 +122,12 @@ class SpaceController extends Controller
         $lists = Space::all();
         //name毎のリクエスト
         $chara_name = $request->input('name');
-        $status = Space::where('name', $chara_name)->first();
+        //インスタンス
+        $caluclate_1 = new Space;
+        //method呼び出し
+        $caluclate_blade = $caluclate_1->Blade();
+        $caluclate_kafka = $caluclate_1->Kafka();
+        dd($caluclate_blade);
         //$attack = $status->attack;
         return view('admin.space.calculate', ['lists' => $lists]);
         

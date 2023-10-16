@@ -21,4 +21,19 @@ class Space extends Model
         'crit_rate' => 'numeric',
         'crit_damage' => 'numeric',
     );
+    
+    public function Blade() {
+        //モデルから、bladeという値のnameカラムを
+        $blade = Space::where('name', 'blade')->get();
+        $blade_attack = $blade->value('attack');
+        $blade_damage = $blade->value('damage_parsent') / 100;
+        return $blade_attack * $blade_damage;
+    }
+    
+    public function Kafka() {
+        $kafka = Space::where('name', 'kafka')->get();
+        return $kafka;
+    }
+    
+    
 }
