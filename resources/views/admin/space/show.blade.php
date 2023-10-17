@@ -76,6 +76,8 @@
                 $('#color_element').addClass('lightningtype');
             case 'Quantum':
                 $('#color_element').addClass('quantumtype');
+            case 'Imaginary':
+                $('#color_element').addClass('imaginarytype');
         }
     });
 </script>
