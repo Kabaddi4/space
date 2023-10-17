@@ -74,6 +74,8 @@
                 break;
             case 'Lightning':
                 $('#color_element').addClass('lightningtype');
+            case 'Quantum':
+                $('#color_element').addClass('quantumtype');
         }
     });
 </script>

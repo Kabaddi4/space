@@ -22,9 +22,11 @@
                     <select name="name" id="chara_name" class="form-select mb-3" aria-label="Default select example">
                         <option selected>Chose Character</option>
                         <option value="Travelar">Travelar</option>
-                        <option value="Kafka">Kaf</option>
-                        <option value="Blade">Chen</option>
-                        <option value="Qingque">Ryuson</option>
+                        <option value="Kafka">Kafka</option>
+                        <option value="Blade">Blade</option>
+                        <option value="Seele">Seele</option>
+                        <option value="ImbibitorLunae">Imbibitor Lunae</option>
+                        <option value="Jingliu">Jingliu</option>
                     </select>
                     
                     <input type="hidden" name="role" value="{{ old('role') }}">
@@ -101,10 +103,18 @@
                roleVal = 'Maindps';
                elementVal = 'Wind';
                break;
-            case 'Qingque':
+            case 'Seele':
                roleVal = 'Maindps';
                elementVal = 'Quantum';
                break;
+            case 'ImbibitorLunae':
+                roleVal = 'Maindps';
+                elementVal = 'Imaginary';
+                break;
+            case 'Jingliu':
+                roleVal = 'Maindps';
+                elementVal = 'Ice';
+                break;
        }
         // input type hiddenでroleカラムに値設定
       $('input[name="role"]').val(roleVal);

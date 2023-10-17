@@ -126,11 +126,13 @@ class SpaceController extends Controller
         $caluclate_1 = new Space;
         //method呼び出し
         $caluclate_blade = $caluclate_1->Blade();
-        $caluclate_kafka = $caluclate_1->Kafka();
-        dd($caluclate_blade);
+        //$blade_skill = $caluclate_blade * 1.5; 成功
+        //dd($caluclate_blade);
+        dd($blade_skill);
+        //$caluclate_kafka = $caluclate_1->Kafka();　成功
+        
         //$attack = $status->attack;
         return view('admin.space.calculate', ['lists' => $lists]);
-        
     }
     
     //@php
