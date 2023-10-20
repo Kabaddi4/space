@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-md-6">
                 <select name="name" class="form-select mb3" label="form-label">
-                    <option select>Select</option>
+                    <option select name="name" id="chara_name">Select</option>
                     @foreach($lists as $character)
-                        <option name="name" id="chara_name" value="{{ $character->name }}">{{ $character->name }}</option>
+                        <option name="name" value="{{ $character->name }}">{{ $character->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -22,7 +22,7 @@
                     <th>Ult Damage</th>
                 </tr>
                 <tr>
-                    <td>(Attack * Damage parsent) * 0.7</td>
+                    <td>result:{{ $result_seele[0] }}</td>
                     <td>(Attack * Damage parsent) * 1.7</td>
                     <td></td>
                 </tr>
@@ -33,17 +33,17 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 <script>
-    $(function() {
+    $(function(){
         //chara_nameが選択された時
         $('#chara_name').change( function() {
-        
-        var conf = $(this).val();
+            console.log('click');
+        var num = $(this).val();
         
         var attackVal = '';
         var skillVal = '';
         var ultVal = '';
         
-        switch(conf){
+        switch(num){
             case 'Travelar':
                 attackVal = 0.8;
                 skillVal = 2.1;

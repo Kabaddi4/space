@@ -123,16 +123,16 @@ class SpaceController extends Controller
         //name毎のリクエスト
         $chara_name = $request->input('name');
         //インスタンス
-        $caluclate_1 = new Space;
+        $caluclate = new Space;
         //method呼び出し
-        $caluclate_blade = $caluclate_1->Blade();
+        $result_blade = $caluclate->Blade();
+        $result_seele = $caluclate->Seele();
+        //dd($result_seele);
         //$blade_skill = $caluclate_blade * 1.5; 成功
-        //dd($caluclate_blade);
-        dd($blade_skill);
         //$caluclate_kafka = $caluclate_1->Kafka();　成功
         
         //$attack = $status->attack;
-        return view('admin.space.calculate', ['lists' => $lists]);
+        return view('admin.space.calculate', ['lists' => $lists, 'result_seele' => $result_seele]);
     }
     
     //@php

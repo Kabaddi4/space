@@ -4,23 +4,3 @@ body {
   background-color: #7fbfff;
   color: #fff;
 }
-
-.firetype {
-  color: red;
-}
-
-.lightningtype {
-  color: darkorchid;
-}
-
-.windtype {
-  color: green;
-}
-
-.quantumtype {
-  color: mediumblue;
-}
-
-.imaginarytype {
-  color: gold;
-}
