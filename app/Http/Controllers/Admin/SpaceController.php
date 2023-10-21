@@ -127,14 +127,14 @@ class SpaceController extends Controller
         //method呼び出し
         $result_seele = $caluclate->Seele();
         $result_kafka = $caluclate->Kafka();
-        $result_Lunae = $caluclate->ImbibitorLunae();
+        $result_lunae = $caluclate->ImbibitorLunae();
         $result_jingliu = $caluclate->Jingliu();
-        //dd($result_seele);
+        dd($result_lunae);
         //$blade_skill = $caluclate_blade * 1.5; 成功
         //$caluclate_kafka = $caluclate_1->Kafka();　成功
         
         //$attack = $status->attack;
-        return view('admin.space.calculate', ['lists' => $lists, 'result_seele' => $result_seele, 'result_kafka'=> $result_kafka, 'result_lunae' => $result_Lunae, 'result_jingliu' => $result_jingliu]);
+        return view('admin.space.calculate', ['lists' => $lists, 'result_seele' => $result_seele, 'result_kafka'=> $result_kafka, 'result_lunae' => $result_lunae, 'result_jingliu' => $result_jingliu]);
     }
     
     //@php

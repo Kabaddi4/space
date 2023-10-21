@@ -39,7 +39,7 @@ class Space extends Model
         $kafka_damage = $kafka->value('damage_parsent') / 100;
         $kafka_crit = $kafka->value('crit_damage') / 100 + 1;
         
-        $nomalhit = $kafka_attack *$kafka_damage;
+        $nomalhit = $kafka_attack * $kafka_damage;
         $crithit = $kafka_attack * $kafka_damage * $kafka_crit;
         
         $kafka_dot = $kafka_attack * 2.9;
@@ -61,7 +61,7 @@ class Space extends Model
         $seele_crit = $seele->value('crit_damage') / 100 + 1;
         
         $nomalhit = $seele_attack * $seele_damage;
-        $crithit = $seele_nomalhit * $seele_crit;
+        $crithit = $nomalhit * $seele_crit;
         $passive = 1.8;
         
         $skill_nomal = $nomalhit * 2.2;
@@ -72,13 +72,13 @@ class Space extends Model
     }
     
     public function ImbibitorLunae() {
-        $lunae = Space::where('name', 'Imbibitor Lunae')->get();
+        $lunae = Space::where('name', 'ImbibitorLunae')->get();
         $lunae_attack = $lunae->value('attack');
         $lunae_damage = $lunae->value('damage_parsent') / 100;
         $lunae_crit = $lunae->value('crit_damage') / 100 + 1;
         
         $nomalhit = $lunae_attack * $lunae_damage;
-        $crithit = $lunae_nomalhit * $lunae_crit;
+        $crithit = $nomalhit * $lunae_crit;
         
         $attack1_nomal = $nomalhit * 2.6;
         $attack1_crit = $crithit * 2.6;
@@ -88,7 +88,8 @@ class Space extends Model
         $attack3_crit = $crithit * 5;
         $ult_nomal = $nomalhit * 3;
         $ult_crit = $crithit * 3;
-        return[$nomalhit, $crithit, $attack1_nomal, $attack1_crit, $attack2_nomal, $attack2_crit, $attack3_nomal, $attack3_crit, $ult_nomal, $ult_crit];
+        
+        return [$nomalhit, $crithit, $attack1_nomal, $attack1_crit, $attack2_nomal, $attack2_crit, $attack3_nomal, $attack3_crit, $ult_nomal, $ult_crit];
     }
     
     public function Jingliu() {
@@ -107,6 +108,8 @@ class Space extends Model
         $buffskill = $buff_crithit * 2.5;
         $ult_nomal = $jingliu_attack * ($jingliu_damage + 0.2) * 3;
         $buffult = $ultbuff_crithit * 3;
+        
+        return [$nomalhit, $crithit, $skill_nomal, $buffskill, $ult_nomal, $buffult];
     }
     
 }
