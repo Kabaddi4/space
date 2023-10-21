@@ -97,8 +97,16 @@ class Space extends Model
         $jingliu_damage = $jingliu->value('damage_parsent') / 100;
         $jingliu_crit = $jingliu->value('crit_damage') / 100 + 1;
         
-        $jingliu_nomalhit = $jingliu_attack * $jingliu_damage;
-        $jingliu_crithit = $jingliu_nomalhit * $jingliu_crit;
+        $buff = 1208 * 1.8;
+        $nomalhit = $jingliu_attack * $jingliu_damage;
+        $crithit = $jingliu_attack * $jingliu_damage * $jingliu_crit;
+        $buff_crithit = ($jingliu_attack + $buff) * $jingliu_damage * $jingliu_crit;
+        $ultbuff_crithit = ($jingliu_attack + $buff) * ($jingliu_damage + 0.2) * $jingliu_crit;
+        
+        $skill_nomal = $nomalhit * 2;
+        $buffskill = $buff_crithit * 2.5;
+        $ult_nomal = $jingliu_attack * ($jingliu_damage + 0.2) * 3;
+        $buffult = $ultbuff_crithit * 3;
     }
     
 }
