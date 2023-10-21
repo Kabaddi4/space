@@ -79,6 +79,16 @@ class Space extends Model
         
         $nomalhit = $lunae_attack * $lunae_damage;
         $crithit = $lunae_nomalhit * $lunae_crit;
+        
+        $attack1_nomal = $nomalhit * 2.6;
+        $attack1_crit = $crithit * 2.6;
+        $attack2_nomal = $nomalhit * 3.8;
+        $attack2_crit = $crithit * 3.8;
+        $attack3_nomal = $nomalhit * 5;
+        $attack3_crit = $crithit * 5;
+        $ult_nomal = $nomalhit * 3;
+        $ult_crit = $crithit * 3;
+        return[$nomalhit, $crithit, $attack1_nomal, $attack1_crit, $attack2_nomal, $attack2_crit, $attack3_nomal, $attack3_crit, $ult_nomal, $ult_crit];
     }
     
     public function Jingliu() {
