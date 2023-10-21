@@ -79,6 +79,7 @@ class Space extends Model
         
         $nomalhit = $lunae_attack * $lunae_damage;
         $crithit = $nomalhit * $lunae_crit;
+        $maxbuff_crithit = $lunae_attack * ($lunae_damage + 0.6) * ($lunae_crit + 0.3);
         
         $attack1_nomal = $nomalhit * 2.6;
         $attack1_crit = $crithit * 2.6;
@@ -88,8 +89,10 @@ class Space extends Model
         $attack3_crit = $crithit * 5;
         $ult_nomal = $nomalhit * 3;
         $ult_crit = $crithit * 3;
+        $maxbuff_attack3 = $maxbuff_crithit * 5;
+        $maxbuff_ult = $maxbuff_crithit * 3;
         
-        return [$nomalhit, $crithit, $attack1_nomal, $attack1_crit, $attack2_nomal, $attack2_crit, $attack3_nomal, $attack3_crit, $ult_nomal, $ult_crit];
+        return [$nomalhit, $crithit, $attack1_nomal, $attack1_crit, $attack2_nomal, $attack2_crit, $attack3_nomal, $attack3_crit, $ult_nomal, $ult_crit, $maxbuff_attack3, $maxbuff_ult];
     }
     
     public function Jingliu() {

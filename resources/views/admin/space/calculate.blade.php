@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <select name="name" class="form-select mb3" label="form-label">
-                    <option select name="name" id="chara_name">Select</option>
+                <select name="name" class="form-select mb3" id="chara_name" label="form-label">
+                    <option select name="name">Select</option>
                     @foreach($lists as $character)
                         <option name="name" value="{{ $character->name }}">{{ $character->name }}</option>
                     @endforeach
@@ -22,9 +22,9 @@
                     <th>Ult Damage</th>
                 </tr>
                 <tr>
-                    <td>result:{{ $result_seele[0] }}</td>
-                    <td>(Attack * Damage parsent) * 1.7</td>
-                    <td></td>
+                    <td id="Attack_result"></td>
+                    <td id="Skill_result"></td>
+                    <td id="Ult_result"></td>
                 </tr>
             </table>
         </div>
@@ -37,24 +37,20 @@
         //chara_nameが選択された時
         $('#chara_name').change( function() {
             console.log('click');
-        var num = $(this).val();
+        //選択された情報を取得
+        var Selected = $(this).val();
+        //変数作成
+        var attackDamage, skillDamage, ultDamage;
         
-        var attackVal = '';
-        var skillVal = '';
-        var ultVal = '';
-        
-        switch(num){
-            case 'Travelar':
-                attackVal = 0.8;
-                skillVal = 2.1;
-                ultVal = 2.3;
-                break;
-            case 'Kafka':
-                attackVal = 1.2;
-                skillVal = 2.9;
-                ultVal = 3.1;
-                break;
+        if (Selected == 'Seele'){
+            attackDamage = {{ intval($result_seele[1]) }}
+            skillDamage = {{ intval($result_seele[3]) }}
+            ultDamage = {{ intval($result_seele[5]) }}
+        } else {
         }
+        $('#Attack_result').text(attackDamage);
+        $('#Skill_result').text(skillDamage);
+        $('#Ult_result').text(ultDamage);
         });
     });
 </script>

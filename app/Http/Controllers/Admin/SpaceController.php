@@ -129,7 +129,7 @@ class SpaceController extends Controller
         $result_kafka = $caluclate->Kafka();
         $result_lunae = $caluclate->ImbibitorLunae();
         $result_jingliu = $caluclate->Jingliu();
-        dd($result_lunae);
+        //dd($result_seele);
         //$blade_skill = $caluclate_blade * 1.5; 成功
         //$caluclate_kafka = $caluclate_1->Kafka();　成功
         
