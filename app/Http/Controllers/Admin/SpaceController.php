@@ -19,9 +19,7 @@ class SpaceController extends Controller
     {
         //バリデーション、うけとった$requestを、$rulesの制限に掛ける？
         $this->validate($request, Space::$rules);
-        
-        
-        
+
         $chara = new Space;
         $form = $request->all();
         

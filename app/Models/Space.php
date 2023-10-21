@@ -13,7 +13,7 @@ class Space extends Model
     protected $fillable = ['name', 'role', 'element', 'attack', 'damage_parsent', 'crit_rate', 'crit_damage'];
     
     public static $rules = array(
-        'name' => 'required',
+        'name' => 'required|unique:spaces,name',
         'role' => 'required',
         'element' => 'required',
         'attack' => 'numeric',
