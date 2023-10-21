@@ -21,9 +21,7 @@
                     @endif
                     <select name="name" id="chara_name" class="form-select mb-3" aria-label="Default select example">
                         <option selected>Chose Character</option>
-                        <option value="Travelar">Travelar</option>
                         <option value="Kafka">Kafka</option>
-                        <option value="Blade">Blade</option>
                         <option value="Seele">Seele</option>
                         <option value="ImbibitorLunae">Imbibitor Lunae</option>
                         <option value="Jingliu">Jingliu</option>
@@ -91,17 +89,9 @@
         var elementVal = '';
         //対応した値をswitch文で選択
         switch(conf) {
-            case 'Travelar':
-                roleVal = 'Tanker';
-                elementVal = 'Fire';
-                break;
             case 'Kafka':
                roleVal = 'Maindps';
                elementVal = 'Lightning';
-               break;
-            case 'Blade':
-               roleVal = 'Maindps';
-               elementVal = 'Wind';
                break;
             case 'Seele':
                roleVal = 'Maindps';
