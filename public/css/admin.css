@@ -4,3 +4,23 @@ body {
   background-color: #7fbfff;
   color: #fff;
 }
+
+.lightningtype {
+  color: mediumorchid;
+}
+
+.windtype {
+  color: green;
+}
+
+.quantumtype {
+  color: blue;
+}
+
+.icetype {
+  color: cyan;
+}
+
+.imaginarytype {
+  color: gold;
+}

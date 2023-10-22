@@ -78,6 +78,8 @@
                 $('#color_element').addClass('quantumtype');
             case 'Imaginary':
                 $('#color_element').addClass('imaginarytype');
+            case 'Ice':
+                $('#color_element').addClass('icetype');
         }
     });
 </script>
