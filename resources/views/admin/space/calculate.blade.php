@@ -60,9 +60,24 @@
             NomalUltDamage = {{ intval($result_seele[4]) }}
             CritUltDamage = {{ intval($result_seele[5]) }}
         } else if(Selected == 'Kafka') {
-            attackDamage = {{ intval($result_kafka[1]) }}
-            skillDamage = {{ intval($result_kafka[3]) }}
-            ultDamage = {{ intval($result_kafka[5]) }}
+            NomalAttackDamage = {{ intval($result_kafka[0]) }}
+            CritAttackDamage = {{ intval($result_kafka[1]) }}
+            NomalSkillDamage = {{ intval($result_kafka[2]) }}
+            CritSkillDamage = {{ intval($result_kafka[3]) }}
+            NomalUltDamage = {{ intval($result_kafka[4]) }}
+            CritUltDamage = {{ intval($result_kafka[5]) }}
+        } else if(Selected == 'ImbibitorLunae') {
+            NomalAttackDamage = {{ intval($result_lunae[6]) }}
+            CritAttackDamage = {{ intval($result_lunae[10]) }}
+            NomalUltDamage = {{ intval($result_lunae[8]) }}
+            CritUltDamage = {{ intval($result_lunae[11]) }}
+        } else if(Selected == 'Jingliu') {
+            NomalAttackDamage = {{ intval($result_jingliu[0]) }}
+            CritAttackDamage = {{ intval($result_jingliu[1]) }}
+            NomalSkillDamage = {{ intval($result_jingliu[2]) }}
+            CritSkillDamage = {{ intval($result_jingliu[3]) }}
+            NomalUltDamage = {{ intval($result_jingliu[4]) }}
+            CritUltDamage = {{ intval($result_jingliu[5]) }}
         }
         
         $('#NomalAttack_result').text(NomalAttackDamage);
