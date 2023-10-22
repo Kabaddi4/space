@@ -14,17 +14,27 @@
             </div>
         </div>
         
-        <div class="row">
-            <table class="my-5">
+        <div class="row mx-auto my-4">
+            <table class="table table-stripd">
                 <tr>
-                    <th>Attack Damage</th>
-                    <th>Skill Damage</th>
-                    <th>Ult Damage</th>
+                    <th></th>
+                    <th>Nomal</th>
+                    <th>Critical</th>
                 </tr>
                 <tr>
-                    <td id="Attack_result"></td>
-                    <td id="Skill_result"></td>
-                    <td id="Ult_result"></td>
+                    <td>Attack</td>
+                    <td id="NomalAttack_result"></td>
+                    <td id="CritAttack_result"></td>
+                </tr>
+                <tr>
+                    <td>Skill</td>
+                    <td id="NomalSkill_result"></td>
+                    <td id="CritSkill_result"></td>
+                </tr>
+                <tr>
+                    <td>Ult</td>
+                    <td id="NomalUlt_result"></td>
+                    <td id="CritUlt_result"></td>
                 </tr>
             </table>
         </div>
@@ -40,17 +50,27 @@
         //選択された情報を取得
         var Selected = $(this).val();
         //変数作成
-        var attackDamage, skillDamage, ultDamage;
+        var NomalAttackDamage,CritAttackDamage, NomalSkillDamage, CritSkillDamage, NomalUltDamage, CritUltDamage;
         
         if (Selected == 'Seele'){
-            attackDamage = {{ intval($result_seele[1]) }}
-            skillDamage = {{ intval($result_seele[3]) }}
-            ultDamage = {{ intval($result_seele[5]) }}
-        } else {
+            NomalAttackDamage = {{ intval($result_seele[0]) }}
+            CritAttackDamage = {{ intval($result_seele[1]) }}
+            NomalSkillDamage = {{ intval($result_seele[2]) }}
+            CritSkillDamage = {{ intval($result_seele[3]) }}
+            NomalUltDamage = {{ intval($result_seele[4]) }}
+            CritUltDamage = {{ intval($result_seele[5]) }}
+        } else if(Selected == 'Kafka') {
+            attackDamage = {{ intval($result_kafka[1]) }}
+            skillDamage = {{ intval($result_kafka[3]) }}
+            ultDamage = {{ intval($result_kafka[5]) }}
         }
-        $('#Attack_result').text(attackDamage);
-        $('#Skill_result').text(skillDamage);
-        $('#Ult_result').text(ultDamage);
+        
+        $('#NomalAttack_result').text(NomalAttackDamage);
+        $('#CritAttack_result').text(CritAttackDamage)
+        $('#NomalSkill_result').text(NomalSkillDamage);
+        $('#CritSkill_result').text(CritSkillDamage);
+        $('#NomalUlt_result').text(NomalUltDamage);
+        $('#CritUlt_result').text(CritUltDamage);
         });
     });
 </script>
