@@ -74,12 +74,16 @@
                 break;
             case 'Lightning':
                 $('#color_element').addClass('lightningtype');
+                break;
             case 'Quantum':
                 $('#color_element').addClass('quantumtype');
+                break;
             case 'Imaginary':
                 $('#color_element').addClass('imaginarytype');
+                break;
             case 'Ice':
                 $('#color_element').addClass('icetype');
+                break;
         }
     });
 </script>
