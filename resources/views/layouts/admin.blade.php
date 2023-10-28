@@ -27,9 +27,9 @@
     <body>
         <div id="app">
             {{-- 画面上のナビゲーションバー(Laravel と書かれている部分) --}}
-            <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+            <nav class="navbar navbar-expand-lg navbar-light navbar-laravel bg-dark">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand text-white-50" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                     {{--Button--}}

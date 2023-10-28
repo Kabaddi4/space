@@ -2,7 +2,6 @@ body {
   background-image: url(../images/image1.jpg);
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #7fbfff;
   color: #fff;
 }
 
@@ -15,7 +14,7 @@ body {
 }
 
 .quantumtype {
-  color: blue;
+  color: dodgerblue;
 }
 
 .icetype {
