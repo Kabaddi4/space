@@ -64,7 +64,12 @@
                 </div>
                 
                 <div class="row">
-                    <a href="{{ route('admin.space.calculate') }}" class="btn btn-primary">Damage Calculate</a>
+                    <div class="col-md-9">
+                        <img src="{{ asset('images/image_caluclate.png') }}" height=50>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ route('admin.space.calculate') }}" class="btn btn-primary">Damage Calculate</a>
+                    </div>
                 </div>
             </div>
         </div>
