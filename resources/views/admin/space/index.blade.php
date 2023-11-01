@@ -5,11 +5,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h3>Character List</h3>
+                <h2 class="text-end fw-bold">Myspace：RPG Game Tools</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
+                <h3>Character List</h3>
                 <a href="{{ route('admin.space.add') }}" role="button" class="btn btn-outline-primary">
                     New create
                 </a>
@@ -17,8 +18,8 @@
             <div class="col-md-8">
                 <form action="{{ route('admin.space.index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">Name</label>
-                        <div class="col-md-8">
+                        <label class="col-md-1">Name</label>
+                        <div class="col-md-5">
                             <input type="text" class="form-control" name="cond_name" value="{{ $cond_name }}">
                         </div>
                     </div>
@@ -64,10 +65,10 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="offset-md-9 col-md-1">
                         <img src="{{ asset('images/image_caluclate.png') }}" height=50>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <a href="{{ route('admin.space.calculate') }}" class="btn btn-dark">Damage Calculate</a>
                     </div>
                 </div>
