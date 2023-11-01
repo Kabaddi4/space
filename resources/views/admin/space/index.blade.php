@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{ route('admin.space.add') }}" role="button" class="btn btn-outline-dark">
+                <a href="{{ route('admin.space.add') }}" role="button" class="btn btn-outline-primary">
                     New create
                 </a>
             </div>
@@ -68,7 +68,7 @@
                         <img src="{{ asset('images/image_caluclate.png') }}" height=50>
                     </div>
                     <div class="col-md-3">
-                        <a href="{{ route('admin.space.calculate') }}" class="btn btn-primary">Damage Calculate</a>
+                        <a href="{{ route('admin.space.calculate') }}" class="btn btn-dark">Damage Calculate</a>
                     </div>
                 </div>
             </div>

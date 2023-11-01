@@ -48,14 +48,14 @@
                     <div class="form-group row">
                         <label class="col-md-6">Critical rate</label>
                         <div class="col-md-4">
-                            <input type="number" name="crit_rate" class="form-control" value="{{ old('crit_rate') }}">%
+                            <input type="number" name="crit_rate" class="form-control" value="{{ old('crit_rate') }}" max=100 min=0>%
                         </div>
                     </div>
                     
                     <div class="form-group row">
                         <label class="col-md-6">Critical damage</label>
                         <div class="col-md-4">
-                            <input type="number"  name="crit_damage" class="form-control" value="{{ old('crit_damage') }}" max=300 min=0>%
+                            <input type="number" name="crit_damage" class="form-control" value="{{ old('crit_damage') }}" max=300 min=0>%
                         </div>
                     </div>
                     

@@ -36,8 +36,10 @@ class SpaceController extends Controller
         unset($form['_token']);
         unset($form['image']);
         
+        //dd($form);
         //保存
         $chara->fill($form);
+        //dd($chara);
         $chara->save();
         
         return redirect('admin/space/create');
