@@ -22,6 +22,8 @@ class SpaceController extends Controller
 
         $chara = new Space;
         $form = $request->only(['name', 'role', 'element', 'attack', 'damage_parsent', 'crit_rate', 'crit_damage']);
+        $skill_form = $request->only(['normal_attack', 'skill', 'ult']);
+        dd($skill_form);
         
         //フォームから画像が送られる場合、保存
         if (isset($form['image'])) {

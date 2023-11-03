@@ -60,6 +60,23 @@
                     </div>
                     
                     <div class="form-group row">
+                        <label class="col-md-1">Attack lv</label>
+                        <div class="col-md-3">
+                            <input type="number" name="normal_attack" class="form-control" value="{{ old('normal_attack') }}">%
+                        </div>
+                        
+                        <label class="col-md-1">Skill lv</label>
+                        <div class="col-md-3">
+                            <input type="number" name="skill" class="form-control" value="{{ old('skill') }}">%
+                        </div>
+                        
+                        <label class="col-md-1">Ult lv</label>
+                        <div class="col-md-3">
+                            <input type="number" name="ult" class="form-control" value="{{ old('ult') }}">%
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
                         <label class="col-md-2"></label>
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image">
