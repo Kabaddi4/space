@@ -62,8 +62,10 @@ class SpaceController extends Controller
     {
         //モデルからデータ取得
         $chara_detail = Space::find($request->id);
-        //$relation = $chara_detail->skills;
-        dd($chara_detail);
+        $skills = Space::find(1)->skills;
+        foreach ($skills as $skill) {
+            dd($skill->skill);
+        }
         return view('admin.space.show', ['chara_detail' => $chara_detail]);
     }
     

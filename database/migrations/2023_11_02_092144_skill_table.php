@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('chara_id');
+            $table->unsignedBigInteger('space_id');
             $table->integer('normal_attack');
             $table->integer('skill');
             $table->integer('ult');
             
-            $table->foreign('chara_id')->references('id')->on('spaces');
+            $table->foreign('space_id')->references('id')->on('spaces');
         });
     }
 
