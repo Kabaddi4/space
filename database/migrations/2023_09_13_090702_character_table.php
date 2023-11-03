@@ -36,6 +36,6 @@ return new class extends Migration
     public function down()
     {
         //モデル名記載
-        Schema::dropIfExists('space');
+        Schema::dropIfExists('spaces');
     }
 };

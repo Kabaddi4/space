@@ -22,6 +22,11 @@ class Space extends Model
         'crit_damage' => 'numeric',
     );
     
+    //リレーション
+    public function skills(){
+        return $this->hasMany('App\Models\Skill');
+    }
+    
     public function Blade() {
         //モデルから、bladeという値のnameカラムを取得
         $blade = Space::where('name', 'Blade')->get();

@@ -42,7 +42,7 @@ class SpaceController extends Controller
         //dd($chara);
         $chara->save();
         
-        return redirect('admin/space/create');
+        return redirect('admin/space');
     }
     
     public function index(Request $request)
@@ -62,7 +62,8 @@ class SpaceController extends Controller
     {
         //モデルからデータ取得
         $chara_detail = Space::find($request->id);
-        //dd($request->id);
+        //$relation = $chara_detail->skills;
+        dd($chara_detail);
         return view('admin.space.show', ['chara_detail' => $chara_detail]);
     }
     
