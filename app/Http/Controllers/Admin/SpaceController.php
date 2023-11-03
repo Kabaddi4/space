@@ -21,8 +21,7 @@ class SpaceController extends Controller
         $this->validate($request, Space::$rules);
 
         $chara = new Space;
-        $form = $request->all();
-        
+        $form = $request->only(['name', 'role', 'element', 'attack', 'damage_parsent', 'crit_rate', 'crit_damage']);
         
         //フォームから画像が送られる場合、保存
         if (isset($form['image'])) {
@@ -62,10 +61,8 @@ class SpaceController extends Controller
     {
         //モデルからデータ取得
         $chara_detail = Space::find($request->id);
-        $skills = Space::find(1)->skills;
-        foreach ($skills as $skill) {
-            dd($skill->skill);
-        }
+        $skills = $chara_detail->skills;
+        //dd($skills);
         return view('admin.space.show', ['chara_detail' => $chara_detail]);
     }
     
