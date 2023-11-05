@@ -23,8 +23,8 @@ class Space extends Model
     );
     
     //リレーション
-    public function skills(){
-        return $this->hasMany('App\Models\Skill');
+    public function skill(){
+        return $this->hasOne('App\Models\Skill');
     }
     
     public function Blade() {

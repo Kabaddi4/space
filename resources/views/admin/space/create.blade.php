@@ -60,20 +60,22 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-1">Attack lv</label>
+                        <label class="col-md-1">Attack</label>
                         <div class="col-md-3">
                             <input type="number" name="normal_attack" class="form-control" value="{{ old('normal_attack') }}">%
                         </div>
                         
-                        <label class="col-md-1">Skill lv</label>
+                        <label class="col-md-1">Skill</label>
                         <div class="col-md-3">
                             <input type="number" name="skill" class="form-control" value="{{ old('skill') }}">%
                         </div>
                         
-                        <label class="col-md-1">Ult lv</label>
+                        <label class="col-md-1">Ult</label>
                         <div class="col-md-3">
                             <input type="number" name="ult" class="form-control" value="{{ old('ult') }}">%
                         </div>
+                        {{--この部分--}}
+                        {{--<input type="text" name="space_id" value="{{ old('space_id') }}">--}}
                     </div>
                     
                     <div class="form-group row">
@@ -93,7 +95,7 @@
 @endsection
 {{--jsファイル読み込み(asset→public dir)--}}
 {{--layouts.adminと、jQueryを使用するページにこれを貼る--}}
-<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function(){
         // chara_name id が選択された時のイベント

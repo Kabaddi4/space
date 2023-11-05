@@ -8,7 +8,7 @@
                 <select name="name" class="form-select mb3" id="chara_name" label="form-label">
                     <option select name="name">Select</option>
                     @foreach($lists as $character)
-                        <option name="name" value="{{ $character->name }}">{{ $character->name }}</option>
+                        <option name="name" value="{{ $character->id }}">{{ $character->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -41,51 +41,28 @@
     </div>
 @endsection
 
-<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-    $(function(){
-        //chara_nameが選択された時
-        $('#chara_name').change( function() {
-            console.log('click');
-        //選択された情報を取得
-        var Selected = $(this).val();
-        //変数作成
-        var NomalAttackDamage,CritAttackDamage, NomalSkillDamage, CritSkillDamage, NomalUltDamage, CritUltDamage;
-        
-        if (Selected == 'Seele'){
-            NomalAttackDamage = {{ intval($result_seele[0]) }}
-            CritAttackDamage = {{ intval($result_seele[1]) }}
-            NomalSkillDamage = {{ intval($result_seele[2]) }}
-            CritSkillDamage = {{ intval($result_seele[3]) }}
-            NomalUltDamage = {{ intval($result_seele[4]) }}
-            CritUltDamage = {{ intval($result_seele[5]) }}
-        } else if(Selected == 'Kafka') {
-            NomalAttackDamage = {{ intval($result_kafka[0]) }}
-            CritAttackDamage = {{ intval($result_kafka[1]) }}
-            NomalSkillDamage = {{ intval($result_kafka[2]) }}
-            CritSkillDamage = {{ intval($result_kafka[3]) }}
-            NomalUltDamage = {{ intval($result_kafka[4]) }}
-            CritUltDamage = {{ intval($result_kafka[5]) }}
-        } else if(Selected == 'ImbibitorLunae') {
-            NomalAttackDamage = {{ intval($result_lunae[6]) }}
-            CritAttackDamage = {{ intval($result_lunae[10]) }}
-            NomalUltDamage = {{ intval($result_lunae[8]) }}
-            CritUltDamage = {{ intval($result_lunae[11]) }}
-        } else if(Selected == 'Jingliu') {
-            NomalAttackDamage = {{ intval($result_jingliu[0]) }}
-            CritAttackDamage = {{ intval($result_jingliu[1]) }}
-            NomalSkillDamage = {{ intval($result_jingliu[2]) }}
-            CritSkillDamage = {{ intval($result_jingliu[3]) }}
-            NomalUltDamage = {{ intval($result_jingliu[4]) }}
-            CritUltDamage = {{ intval($result_jingliu[5]) }}
-        }
-        
-        $('#NomalAttack_result').text(NomalAttackDamage);
-        $('#CritAttack_result').text(CritAttackDamage)
-        $('#NomalSkill_result').text(NomalSkillDamage);
-        $('#CritSkill_result').text(CritSkillDamage);
-        $('#NomalUlt_result').text(NomalUltDamage);
-        $('#CritUlt_result').text(CritUltDamage);
+    $(document).ready(function(){
+        $('#chara_name').change(function(){
+           
+        {{--ID取得--}}
+        var id = $(this).val();
+         console.log(id);
+        $.ajax({
+            {{--Route名--}}
+            url: "result",
+            method: "POST",
+            {{--data: key:var id--}}
+            data: { id : id },
+            dataType: "json",
+        }).done(function(res){
+            $('#NomalAttack_result').append(res.normal_attack);
+            $('#CritAttack_result').append(res.skill);
+            $('#NomalSkill_result').append(res.ult);
+        }).fail(function(){
+            alert('Result get Failed');
         });
     });
+});
 </script>

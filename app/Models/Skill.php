@@ -9,6 +9,9 @@ class Skill extends Model
 {
     use HasFactory;
     
+    protected $guard = array('id');
+    protected $fillable = ['normal_attack', 'skill', 'ult'];
+    
     public function chara(){
         return $this->belongsTo('App\Models\Space');
     }

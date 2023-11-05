@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 //モデルを追加
 use App\Models\Space;
+use App\Models\Skill;
 
 class SpaceController extends Controller
 {
     //追加機能
     public function add()
-    {
+    {   
+        //$relation = Space::find(id);
         return view('admin.space.create');
     }
     public function create(Request $request)
@@ -22,8 +24,6 @@ class SpaceController extends Controller
 
         $chara = new Space;
         $form = $request->only(['name', 'role', 'element', 'attack', 'damage_parsent', 'crit_rate', 'crit_damage']);
-        $skill_form = $request->only(['normal_attack', 'skill', 'ult']);
-        dd($skill_form);
         
         //フォームから画像が送られる場合、保存
         if (isset($form['image'])) {
@@ -36,12 +36,17 @@ class SpaceController extends Controller
         //フォームから送信された_tokenとimageを削除
         unset($form['_token']);
         unset($form['image']);
+        //Skillのインスタンス
+        $skill = new Skill;
+        $skill_form = $request->only(['normal_attack', 'skill', 'ult',]);
+        //dd($skill);
         
-        //dd($form);
         //保存
         $chara->fill($form);
         //dd($chara);
         $chara->save();
+        $skill->fill($skill_form);
+        $skill->save();
         
         return redirect('admin/space');
     }
@@ -139,5 +144,19 @@ class SpaceController extends Controller
         return view('admin.space.calculate', ['lists' => $lists, 'result_seele' => $result_seele, 'result_kafka'=> $result_kafka, 'result_lunae' => $result_lunae, 'result_jingliu' => $result_jingliu]);
     }
     
+    public function result(){
+        $id = request()->get('id');
+        
+        $normal_attack = Skill::find($id)->normal_attack;
+        $skill = Skill::find($id)->skill;
+        $ult = Skill::find($id)->ult;
+        
+        //json形式で返す。
+        return response()->json([
+            'normal_attack' => $normal_attack,
+            'skill' => $skill,
+            'ult' => $ult,
+            ]);
+    }
     //@php
 }

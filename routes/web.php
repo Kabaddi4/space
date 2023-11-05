@@ -26,6 +26,7 @@ Route::controller(SpaceController::class)->prefix('admin/space')->name('admin.sp
     Route::get('edit', 'edit')->name('edit');
     Route::post('edit', 'update')->name('update');
     Route::get('delete', 'delete')->name('delete');
+    Route::post('calculate', 'result')->name('result');
     Route::get('calculate', 'calculate')->name('calculate');
 });
 Auth::routes();
