@@ -145,17 +145,15 @@ class SpaceController extends Controller
     }
     
     public function result(){
+        //値取得
         $id = request()->get('id');
-        
-        $normal_attack = Skill::find($id)->normal_attack;
-        $skill = Skill::find($id)->skill;
-        $ult = Skill::find($id)->ult;
+        $space = Space::find($id);
         
         //json形式で返す。
         return response()->json([
-            'normal_attack' => $normal_attack,
-            'skill' => $skill,
-            'ult' => $ult,
+            'normal_attack' => $space->normal_attack,
+            'skill' => $space->skill,
+            'ult' => $space->ult,
             ]);
     }
     //@php

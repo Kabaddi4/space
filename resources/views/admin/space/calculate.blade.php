@@ -45,16 +45,16 @@
 <script>
     $(document).ready(function(){
         $('#chara_name').change(function(){
-           
         {{--ID取得--}}
         var id = $(this).val();
          console.log(id);
         $.ajax({
-            {{--Route名--}}
+            {{--Route名、blade.phpで使えるメソッド--}}
             url: "result",
             method: "POST",
             {{--data: key:var id--}}
             data: { id : id },
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             dataType: "json",
         }).done(function(res){
             $('#NomalAttack_result').append(res.normal_attack);
