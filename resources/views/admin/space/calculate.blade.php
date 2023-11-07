@@ -57,9 +57,12 @@
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             dataType: "json",
         }).done(function(res){
-            $('#NomalAttack_result').append(res.normal_attack);
-            $('#CritAttack_result').append(res.skill);
-            $('#NomalSkill_result').append(res.ult);
+            $('#NomalAttack_result').empty().append(parseInt(res.attack_normal, 10));
+            $('#CritAttack_result').empty().append(parseInt(res.attack_crit, 10));
+            $('#NomalSkill_result').empty().append(parseInt(res.skill_normal, 10));
+            $('#CritSkill_result').empty().append(parseInt(res.skill_crit, 10));
+            $('#NomalUlt_result').empty().append(parseInt(res.ult_normal, 10));
+            $('#CritUlt_result').empty().append(parseInt(res.ult_crit, 10));
         }).fail(function(){
             alert('Result get Failed');
         });

@@ -147,14 +147,32 @@ class SpaceController extends Controller
     public function result(){
         //値取得
         $id = request()->get('id');
+        //SpaceModel
         $space = Space::find($id);
+        //Skill Model
+        $relation = $space->skill;
+        
+        $normal_hit = $space->attack * ($space->damage_parsent / 100);
+        $crit_hit = $normal_hit * (1 + $space->crit_damage / 100);
+        
+        $attack_normal = $normal_hit * ($relation->normal_attack / 100);
+        $attack_crit = $crit_hit * ($relation->normal_attack /100);
+        $skill_normal = $normal_hit * ($relation->skill / 100);
+        $skill_crit = $crit_hit * ($relation->skill / 100);
+        $ult_normal = $normal_hit * ($relation->ult / 100);
+        $ult_crit = $crit_hit * ($relation->ult / 100);
         
         //json形式で返す。
         return response()->json([
-            'normal_attack' => $space->normal_attack,
-            'skill' => $space->skill,
-            'ult' => $space->ult,
+            'attack_normal' => $attack_normal,
+            'attack_crit' => $attack_crit,
+            'skill_normal' => $skill_normal,
+            'skill_crit' => $skill_crit,
+            'ult_normal' => $ult_normal,
+            'ult_crit' => $ult_crit,
             ]);
+        //relationで取得した$relationから、対応した$space_idの値を取得できる。
+        //例だとskill2は成功。
     }
     //@php
 }
