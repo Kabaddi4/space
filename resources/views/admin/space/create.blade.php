@@ -25,6 +25,7 @@
                         <option value="Seele">Seele</option>
                         <option value="ImbibitorLunae">Imbibitor Lunae</option>
                         <option value="Jingliu">Jingliu</option>
+                        <option value="Toparz">Toparz</option>
                     </select>
                     
                     <input type="hidden" name="role" value="{{ old('role') }}">
@@ -75,7 +76,7 @@
                             <input type="number" name="ult" class="form-control" value="{{ old('ult') }}">%
                         </div>
                         {{--この部分--}}
-                        {{--<input type="text" name="space_id" value="{{ old('space_id') }}">--}}
+                        {{--<input type="hidden" name="space_id" value="{{ old('space_id') }}">--}}
                     </div>
                     
                     <div class="form-group row">
@@ -124,6 +125,9 @@
                 roleVal = 'Maindps';
                 elementVal = 'Ice';
                 break;
+            case 'Toparz':
+                roleVal = 'Subdps';
+                elementVal = 'Fire';
        }
         // input type hiddenでroleカラムに値設定
       $('input[name="role"]').val(roleVal);

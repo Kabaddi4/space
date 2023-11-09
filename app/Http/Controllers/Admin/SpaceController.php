@@ -19,12 +19,14 @@ class SpaceController extends Controller
     }
     public function create(Request $request)
     {
+        //dd('ok');
+        //dd($request);
         //バリデーション、うけとった$requestを、$rulesの制限に掛ける？
         $this->validate($request, Space::$rules);
 
         $chara = new Space;
         $form = $request->only(['name', 'role', 'element', 'attack', 'damage_parsent', 'crit_rate', 'crit_damage']);
-        
+        //dd($form);
         //フォームから画像が送られる場合、保存
         if (isset($form['image'])) {
             $path = $request->file('image')->store('public/image');
@@ -39,15 +41,20 @@ class SpaceController extends Controller
         //Skillのインスタンス
         $skill = new Skill;
         $skill_form = $request->only(['normal_attack', 'skill', 'ult',]);
-        //dd($skill);
         
+        //dd($skill);
         //保存
         $chara->fill($form);
         //dd($chara);
-        $chara->save();
-        $skill->fill($skill_form);
-        $skill->save();
         
+        //error解決の為、順番を逆に
+        $chara->save();
+        //$skill_form['space_id'] = $chara->id;
+        $skill->fill($skill_form);
+        $skill->space_id = $chara->id;
+        //dd($skill_form);
+        $skill->save();
+    
         return redirect('admin/space');
     }
     
@@ -164,6 +171,7 @@ class SpaceController extends Controller
         
         //json形式で返す。
         return response()->json([
+            'name' => $space->name,
             'attack_normal' => $attack_normal,
             'attack_crit' => $attack_crit,
             'skill_normal' => $skill_normal,

@@ -41,6 +41,7 @@
     </div>
 @endsection
 
+{{--slim.min.jsだとエラー--}}
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function(){
@@ -49,7 +50,7 @@
         var id = $(this).val();
          console.log(id);
         $.ajax({
-            {{--Route名、blade.phpで使えるメソッド--}}
+            {{--Route名を記載--}}
             url: "result",
             method: "POST",
             {{--data: key:var id--}}
