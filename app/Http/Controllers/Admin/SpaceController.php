@@ -161,15 +161,21 @@ class SpaceController extends Controller
         
         $normal_hit = $space->attack * ($space->damage_parsent / 100);
         $crit_hit = $normal_hit * (1 + $space->crit_damage / 100);
-        
+        //基礎計算
         $attack_normal = $normal_hit * ($relation->normal_attack / 100);
         $attack_crit = $crit_hit * ($relation->normal_attack /100);
         $skill_normal = $normal_hit * ($relation->skill / 100);
         $skill_crit = $crit_hit * ($relation->skill / 100);
         $ult_normal = $normal_hit * ($relation->ult / 100);
         $ult_crit = $crit_hit * ($relation->ult / 100);
+        //個別の計算 (これを、hiddenで対応できるようにしたい)
+        $kafka_dot = $space->attack * 2.9;
+        $lunae_attack_single = $crit_hit * 5;
+        $lunae_attack_aoe = $crit_hit * 1.8;
+        $jingliu_skill_single = $crit_hit * 2.5;
+        $jingliu_skill_aoe = $crit_hit * 1.25;
         
-        //json形式で返す。
+        //json形式で res に返す。
         return response()->json([
             'name' => $space->name,
             'attack_normal' => $attack_normal,
@@ -178,6 +184,11 @@ class SpaceController extends Controller
             'skill_crit' => $skill_crit,
             'ult_normal' => $ult_normal,
             'ult_crit' => $ult_crit,
+            'kafka_dot' => $kafka_dot,
+            'lunae_attack_single' => $lunae_attack_single,
+            'lunae_attack_aoe' => $lunae_attack_aoe,
+            'jingliu_skill_single' => $jingliu_skill_single,
+            'jingliu_skill_aoe' => $jingliu_skill_aoe,
             ]);
         //relationで取得した$relationから、対応した$space_idの値を取得できる。
         //例だとskill2は成功。

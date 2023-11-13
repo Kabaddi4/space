@@ -44,6 +44,7 @@
                         <tbody>
                             @foreach($lists as $list)
                             <tr>
+                                <td><img src="{{ asset('images/') }}"></td>
                                 <td><a href="{{ route('admin.space.show', ['id' => $list->id]) }}">{{ Str::limit($list->name, 15) }}</a></td>
                                 <td>{{ Str::limit($list->element, 10) }}</td>
                                 <td>{{ Str::limit($list->role, 10) }}</td>

@@ -36,7 +36,18 @@
                     <td id="NomalUlt_result"></td>
                     <td id="CritUlt_result"></td>
                 </tr>
+                <tr>
+                    <td>Etc</td>
+                    <td id="Etc_result1"></td>
+                    <td id="Etc_result2"></td>
+                </tr>
             </table>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{{ route('admin.space.add') }}" role="button" class="btn btn-outline-primary">New Create</a>
+            </div>
         </div>
     </div>
 @endsection
@@ -64,6 +75,16 @@
             $('#CritSkill_result').empty().append(parseInt(res.skill_crit, 10));
             $('#NomalUlt_result').empty().append(parseInt(res.ult_normal, 10));
             $('#CritUlt_result').empty().append(parseInt(res.ult_crit, 10));
+            
+            if (res.name == 'Kafka') {
+                $('#Etc_result1').empty().append(parseInt(res.kafka_dot, 10));
+            } else if (res.name == 'ImbibitorLunae'){
+                $('#Etc_result1').empty().append(parseInt(res.lunae_attack_single, 10));
+                $('#Etc_result2').empty().append(parseInt(res.lunae_attack_aoe, 10));
+            } else if (res.name == 'Jingliu'){
+                $('#Etc_result1').empty().append(parseInt(res.jingliu_skill_single, 10));
+                $('#Etc_result2').empty().append(parseInt(res.jingliu_skill_aoe, 10));
+            }
         }).fail(function(){
             alert('Result get Failed');
         });
