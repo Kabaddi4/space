@@ -1,6 +1,26 @@
 body {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #7fbfff;
-    color: #fff;
+  background-image: url(/images/image1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+}
+
+.lightningtype {
+  color: mediumorchid;
+}
+
+.windtype {
+  color: green;
+}
+
+.quantumtype {
+  color: dodgerblue;
+}
+
+.icetype {
+  color: cyan;
+}
+
+.imaginarytype {
+  color: gold;
 }
