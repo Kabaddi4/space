@@ -33,6 +33,7 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
+                                <th width="10%"></th>
                                 <th width="10%">Name</th>
                                 <th width="30%">Element</th>
                                 <th width="30%">Role</th>

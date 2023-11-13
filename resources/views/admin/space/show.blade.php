@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <h2 class="title_test">Character Detail</h2>
-
+                <p>dep test</p>
             </div>
         </div>
         <div class="row">
