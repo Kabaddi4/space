@@ -15,9 +15,13 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <a href="admin/space">Start App</a>
     </div>
 </div>
 @endsection
