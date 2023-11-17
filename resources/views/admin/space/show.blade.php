@@ -6,12 +6,7 @@
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <h2 class="title_test">Character Detail</h2>
-                <p>dep test</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mx-auto p-3">
-                <h6 class="display-6">{{ $chara_detail->name }}</h6>
+                 <h6 class="display-6">{{ $chara_detail->name }}</h6>
                 {{ $chara_detail->image_path}}
             </div>
         </div>
